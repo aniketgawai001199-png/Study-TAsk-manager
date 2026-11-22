@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT Study Task Manager | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+<script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+        window.location.href = "index.html";
+    }
+</script>
+
+<div class="dashboard-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">MIT</div>
+            <div>
+                <h3>MIT AOE</h3>
+                <small>Alandi, Pune</small>
+            </div>
+        </div>
+
+        <p class="menu-heading">ACADEMIC</p>
+
+        <nav>
+            <a class="active" href="#dashboard">🏠 Dashboard</a>
+            <a href="#assignments">📝 Assignments</a>
+            <a href="#calendar">📅 Calendar</a>
+            <a href="#analytics">📊 Academic Analytics</a>
+        </nav>
+
+        <p class="menu-heading">STUDENT TOOLS</p>
+
+        <nav>
+            <a href="#focus">⏱ Focus Study</a>
+            <a href="#subjects">📚 Subjects</a>
+            <a href="#settings">⚙ Settings</a>
+        </nav>
+
+        <button class="logout-btn" onclick="logoutStudent()">
+            ↪ Logout
+        </button>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-main">
+
+        <header class="topbar">
+
+            <input type="search"
+                   id="assignmentSearch"
+                   placeholder="🔍 Search assignments...">
+
+            <div class="student-profile">
+                <div>
+                    <strong id="studentNameDisplay">Aniket</strong>
+                    <small>B.Tech Student • MIT AOE</small>
+                </div>
+
+                <div class="profile-logo" id="profileLogo">A</div>
+            </div>
+
+        </header>
+
+        <!-- DASHBOARD -->
+        <section class="dashboard-content" id="dashboard">
+
+            <div class="welcome-section">
+                <div>
+                    <p>MIT ACADEMY OF ENGINEERING</p>
+                    <h1>Good Evening, <span id="welcomeName">Aniket</span> 👋</h1>
+                    <small>Your academic workspace at MIT AOE, Alandi.</small>
+                </div>
+
+                <button class="new-assignment">+ New Assignment</button>
+            </div>
+
+            <!-- STATISTICS -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>📝</span>
+                    <small>TOTAL ASSIGNMENTS</small>
+                    <h2>0</h2>
+                    <p>Academic tasks</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>⚡</span>
+                    <small>PENDING</small>
+                    <h2>0</h2>
+                    <p>Need attention</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>✓</span>
+                    <small>COMPLETED</small>
+                    <h2>0</h2>
+                    <p>Great progress</p>
+                </div>
+
+                <div class="stat-card">
+                    <span>🔥</span>
+                    <small>STUDY STREAK</small>
+                    <h2>7</h2>
+                    <p>Days active</p>
+                </div>
+
+            </div>
+
+            <!-- ACTIVITY AND FOCUS -->
+            <div class="middle-grid">
+
+                <div class="dashboard-card">
+                    <h3>Academic Activity</h3>
+                    <small>Weekly study overview</small>
+
+                    <div class="chart">
+                        <div style="height:45%"></div>
+                        <div style="height:75%"></div>
+                        <div style="height:55%"></div>
+                        <div style="height:95%"></div>
+                        <div style="height:65%"></div>
+                        <div style="height:85%"></div>
+                        <div style="height:35%"></div>
+                    </div>
+
+                    <div class="days">
+                        <span>MON</span>
+                        <span>TUE</span>
+                        <span>WED</span>
+                        <span>THU</span>
+                        <span>FRI</span>
+                        <span>SAT</span>
+                        <span>SUN</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-card" id="focus">
+                    <h3>Study Focus</h3>
+                    <small>Pomodoro session</small>
+
+                    <div class="timer">
+                        <h1>25:00</h1>
+                        <small>FOCUS</small>
+                    </div>
+
+                    <button id="startTimer">▶ Start</button>
+                    <button id="resetTimer">↻ Reset</button>
+                </div>
+
+            </div>
+
+            <!-- ASSIGNMENTS AND COURSE PROGRESS -->
+            <div class="bottom-grid">
+
+                <div class="dashboard-card" id="assignments">
+                    <h3>Assignments</h3>
+                    <small>Your academic tasks</small>
+
+                    <div id="assignmentList">
+                        <p class="empty-message">No assignments yet 📚</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Course Progress</h3>
+                    <small>Current semester</small>
+
+                    <div class="course">
+                        <p>Data Structures <span>82%</span></p>
+                        <div class="progress"><div style="width:82%"></div></div>
+                    </div>
+
+                    <div class="course">
+                        <p>Mathematics <span>68%</span></p>
+                        <div class="progress"><div style="width:68%"></div></div>
+                    </div>
+
+                    <div class="course">
+                        <p>Java Programming <span>75%</span></p>
+                        <div class="progress"><div style="width:75%"></div></div>
+                    </div>
+
+                    <div class="course">
+                        <p>Database <span>54%</span></p>
+                        <div class="progress"><div style="width:54%"></div></div>
+                    </div>
+
+                    <div class="course">
+                        <p>Web Development <span>91%</span></p>
+                        <div class="progress"><div style="width:91%"></div></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CALENDAR -->
+        <section class="dashboard-card" id="calendar">
+            <h3>📅 Assignment Calendar</h3>
+            <p>Upcoming assignment deadlines</p>
+            <div id="calendarList"></div>
+        </section>
+
+        <!-- SUBJECTS -->
+        <section class="dashboard-card" id="subjects">
+            <h3>📚 My Subjects</h3>
+            <p>Manage your academic subjects</p>
+
+            <button onclick="addSubject()">+ Add Subject</button>
+            <div id="subjectsList"></div>
+        </section>
+
+        <!-- ANALYTICS -->
+        <section class="dashboard-card" id="analytics">
+            <h3>📊 Academic Analytics</h3>
+            <p>Your academic performance overview</p>
+
+            <div style="margin-top:20px;">
+                <h2 id="analyticsTotal">0</h2>
+                <p>Total Assignments</p>
+
+                <h2 id="analyticsCompleted">0</h2>
+                <p>Completed Assignments</p>
+
+                <h2 id="analyticsPending">0</h2>
+                <p>Pending Assignments</p>
+
+                <h2 id="analyticsPercentage">0%</h2>
+                <p>Completion Percentage</p>
+
+                <div class="progress">
+                    <div id="analyticsBar" style="width:0%"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section class="dashboard-card" id="settings">
+            <h3>⚙ Settings</h3>
+            <p>Customize your study preferences</p>
+
+            <div style="margin-top:20px;">
+
+                <label for="studentNameInput">Student Name</label>
+                <input type="text"
+                       id="studentNameInput"
+                       placeholder="Enter your name">
+
+                <label for="studyDuration">Focus Duration</label>
+                <select id="studyDuration">
+                    <option value="25">25 Minutes</option>
+                    <option value="30">30 Minutes</option>
+                    <option value="45">45 Minutes</option>
+                    <option value="60">60 Minutes</option>
+                </select>
+
+                <button onclick="saveSettings()">Save Settings</button>
+
+                <p id="settingsMessage"></p>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

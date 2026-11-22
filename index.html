@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login | Study Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="login-page">
+
+    <div class="login-left">
+
+        <div class="logo">MIT</div>
+
+        <h3>MIT Academy of Engineering</h3>
+        <h3>Alandi, Pune</h3>
+
+        <h1>
+            Academic work,<br>
+            <span>organized better.</span>
+        </h1>
+
+        <p class="description">
+            A smart academic task and assignment management
+            system designed for students to manage assignments,
+            deadlines, study sessions and academic progress.
+        </p>
+
+        <div class="features">
+            <span>📚 Assignments</span>
+            <span>📊 Progress Tracking</span>
+            <span>📅 Deadlines</span>
+            <span>⏱ Focus Timer</span>
+        </div>
+
+    </div>
+
+    <div class="login-right">
+
+        <h1>Student Login 👋</h1>
+
+        <p>
+            MIT Academy of Engineering<br>
+            Academic Task Management System
+        </p>
+
+        <form onsubmit="loginStudent(event)">
+
+            <label>USERNAME</label>
+            <input type="text" id="username"
+                   placeholder="Enter username" required>
+
+            <label>PASSWORD</label>
+            <input type="password" id="password"
+                   placeholder="Enter password" required>
+
+            <button type="submit">
+                Login to Student Portal →
+            </button>
+
+        </form>
+
+        <small>Demo Login: aniket / aniket123</small>
+
+        <p id="loginError"></p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
